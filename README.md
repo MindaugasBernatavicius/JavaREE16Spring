@@ -1,0 +1,6 @@
+# JavaREE16Spring
+
+## Launch procedure
+- git checkout ...
+- launch database
+- ...
