@@ -1,0 +1,36 @@
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/main.html}">
+<div layout:fragment="content">
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tr th:each="post, idx: ${posts}">
+      <td th:text="${idx.count}" />
+      <td th:text="${post.id}" />
+      <td th:text="${post.title}" />
+      <td th:text="${post.text}" />
+      <td>
+        <a th:href="@{'/posts/delete/' + ${post.id}}">
+          <button>Delete</button>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+  <!-- Adding the form -->
+  <form action="#" th:action="@{/create-post}" method="post"></br>
+     Title:</br><input type="text" oninput="validate(this)" name="title" value=""></br>
+     Text:</br><input type="text" name="text" value="">
+     <br>
+     <input type="submit" value="Submit">
+  </form>
+</div>
